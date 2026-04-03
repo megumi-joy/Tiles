@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magic Balls Adventure - UI Showcase</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            color: #fbbf24;
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            max-width: 800px;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .card {
+            background-color: #1e293b;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card img {
+            width: 100%;
+            display: block;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            color: #fb923c;
+            margin-bottom: 10px;
+        }
+
+        .card-desc {
+            font-size: 1rem;
+            color: #cbd5e1;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Magic Balls Adventure</h1>
+    <p>High-fidelity UI mockups implemented for the mobile experience. These designs are optimized for hyper-casual
+        gameplay, featuring vibrant colors, intuitive layouts, and clear feedback labels.</p>
+
+    <div class="gallery">
+        <div class="card">
+            <img src="./main_menu_preview_1775223484279.png" alt="Main Menu">
+            <div class="card-content">
+                <div class="card-title">Main Menu</div>
+                <div class="card-desc">Features Play, Shop, Updates, and Settings buttons with a premium rounded
+                    aesthetic.</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="./roadmap_preview_1775223498387.png" alt="Roadmap & Updates">
+            <div class="card-content">
+                <div class="card-title">Roadmap & Updates</div>
+                <div class="card-desc">Interactive popup detailing future plans and recent fixes like persistence and AI
+                    toggles.</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="./shop_preview_1775223512363.png" alt="IAP Shop">
+            <div class="card-content">
+                <div class="card-title">In-App Shop</div>
+                <div class="card-desc">Mock IAP system with item packs and visual purchase confirmation feedback.</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="./gameplay_ui_preview_1775223526751.png" alt="Gameplay & Paused">
+            <div class="card-content">
+                <div class="card-title">Gameplay & Pause Logic</div>
+                <div class="card-desc">Shows the 'PAUSED' and 'AI OFF' labels, along with the 'Hide UI' toggle button.
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
