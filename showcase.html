@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magic Balls Adventure - Showcase</title>
+    <style>
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: #0f0c29;
+            background: linear-gradient(to bottom, #24243e, #302b63, #0f0c29);
+            color: white;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .header {
+            padding: 60px 20px;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin: 0;
+            background: linear-gradient(45deg, #00f2fe, #4facfe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            border-color: #00f2fe;
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .card-content {
+            padding: 24px;
+        }
+
+        .card h3 {
+            margin: 0 0 12px 0;
+            color: #4facfe;
+            font-size: 1.5rem;
+        }
+
+        .card p {
+            color: #ccc;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .cta {
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 16px 40px;
+            background: linear-gradient(45deg, #00f2fe, #4facfe);
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 15px rgba(0, 242, 254, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 242, 254, 0.5);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>Magic Balls Adventure</h1>
+        <p>A Neon Odyssey Through Procedural Worlds</p>
+    </div>
+
+    <div class="container">
+        <div class="feature-grid">
+            <div class="card">
+                <img src="assets/showcase/gameplay.png" alt="Gameplay">
+                <div class="card-content">
+                    <h3>Fluid Controls</h3>
+                    <p>Master the ball with our premium virtual joystick or tilt your device for full Gyroscope
+                        immersion. Dual-touch support enables seamless 360&deg; camera control.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="assets/showcase/ai_mode.png" alt="AI Mode">
+                <div class="card-content">
+                    <h3>Smart AI Companion</h3>
+                    <p>Toggle AI mode to watch your ball expertly navigate complex terrain, collect rare coins, and
+                        avoid deadly pitfalls using advanced pathfinding logic.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="assets/showcase/settings.png" alt="Settings">
+                <div class="card-content">
+                    <h3>Vibrant Aesthetics</h3>
+                    <p>Explore gorgeous, glow-in-the-dark procedural environments generated at runtime. Every level is a
+                        unique neon challenge powered by Godotcraft.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="cta">
+        <a href="index.html" class="btn">PLAY NOW IN BROWSER</a>
+    </div>
+
+    <div class="footer">
+        &copy; 2026 megumi-joy. Powered by Godot 4 & Antimatter Engine.
+    </div>
+
+</body>
+
+</html>
