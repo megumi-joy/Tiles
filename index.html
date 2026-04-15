@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, user-scalable=no" />
@@ -70,7 +71,7 @@
 			position: relative;
 		}
 
-		#status-indeterminate > div {
+		#status-indeterminate>div {
 			width: 4.5px;
 			height: 0;
 			border-radius: 2px;
@@ -92,30 +93,44 @@
 	<link id="-gd-engine-icon" rel="icon" type="image/png" href="index.icon.png" />
 <link rel="apple-touch-icon" href="index.apple-touch-icon.png"/>
 
+	<script src="coi-serviceworker.js"></script>
 	<!-- Braintree SDK -->
 	<script src="https://js.braintreegateway.com/web/dropin/1.40.1/js/dropin.min.js"></script>
 </head>
+
 <body>
 	<canvas id="canvas">
 		HTML5 canvas app is not supported by your browser.
 	</canvas>
 	<div id="status">
-		<div id="status-progress" style="display: none;" oncontextmenu="event.preventDefault();"><div id="status-progress-inner"></div></div>
+		<div id="status-progress" style="display: none;" oncontextmenu="event.preventDefault();">
+			<div id="status-progress-inner"></div>
+		</div>
 		<div id="status-indeterminate" style="display: none;" oncontextmenu="event.preventDefault();">
-			<div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
 		</div>
 		<div id="status-notice" class="godot" style="display: none;"></div>
 	</div>
 
 	<!-- Payment UI Container -->
-	<div id="payment-overlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:100; justify-content:center; align-items:center;">
-		<div id="dropin-container" style="width:90%; max-width:500px; background:white; padding:20px; border-radius:8px;"></div>
+	<div id="payment-overlay"
+		style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:100; justify-content:center; align-items:center;">
+		<div id="dropin-container"
+			style="width:90%; max-width:500px; background:white; padding:20px; border-radius:8px;"></div>
 		<button id="submit-button" style="display:none; margin-top:20px; padding:10px 20px;">Purchase</button>
-		<button onclick="document.getElementById('payment-overlay').style.display='none'" style="margin-top:20px; margin-left:10px;">Cancel</button>
+		<button onclick="document.getElementById('payment-overlay').style.display='none'"
+			style="margin-top:20px; margin-left:10px;">Cancel</button>
 	</div>
 
 	<script type="text/javascript">
-		const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":654336,"index.wasm":35376909},"focusCanvas":true,"gdextensionLibs":[]};
+		const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":1142656,"index.wasm":35376909},"focusCanvas":true,"gdextensionLibs":[]};
 		const engine = new Engine(GODOT_CONFIG);
 
 		(function () {
@@ -135,19 +150,19 @@
 					elem.style.display = 'none';
 				});
 				switch (mode) {
-				case 'progress':
-					statusProgress.style.display = 'block';
-					break;
-				case 'indeterminate':
-					statusIndeterminate.style.display = 'block';
-					break;
-				case 'notice':
-					statusNotice.style.display = 'block';
-					break;
-				case 'hidden':
-					break;
-				default:
-					throw new Error('Invalid status mode');
+					case 'progress':
+						statusProgress.style.display = 'block';
+						break;
+					case 'indeterminate':
+						statusIndeterminate.style.display = 'block';
+						break;
+					case 'notice':
+						statusNotice.style.display = 'block';
+						break;
+					case 'hidden':
+						break;
+					default:
+						throw new Error('Invalid status mode');
 				}
 				statusMode = mode;
 			}
@@ -199,18 +214,18 @@
 
 		// --- Braintree / GPay Bridge ---
 		let braintreeInstance = null;
-		
-		window.initBraintreeUI = function() {
+
+		window.initBraintreeUI = function () {
 			console.log("Braintree Bridge: Initialized.");
 			// Pre-fetching client token would happen here from your bizum/gpay server
 		};
 
-		window.requestPayment = function(itemId, price) {
+		window.requestPayment = function (itemId, price) {
 			console.log("Requesting payment for " + itemId + " at " + price);
 			document.getElementById('payment-overlay').style.display = 'flex';
-			
+
 			// Replace 'YOUR_CLIENT_AUTHORIZATION' with actual token from your backend
-			const clientToken = "sandbox_999999_sample_token"; 
+			const clientToken = "sandbox_999999_sample_token";
 
 			if (!braintreeInstance) {
 				braintree.dropin.create({
@@ -225,7 +240,7 @@
 					}
 					braintreeInstance = instance;
 					document.getElementById('submit-button').style.display = 'block';
-					document.getElementById('submit-button').onclick = function() {
+					document.getElementById('submit-button').onclick = function () {
 						instance.requestPaymentMethod(function (err, payload) {
 							if (err) {
 								console.error('Request Payment Method Error', err);
@@ -249,5 +264,5 @@
 		};
 	</script>
 </body>
-</html>
 
+</html>
